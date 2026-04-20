@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "JetBrains Mono", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-hw-bg: #0f1012;
+  --color-hw-panel: #1a1c1e;
+  --color-hw-lcd-bg: #0d2119;
+  --color-hw-lcd-text: #50fa7b;
+  --color-hw-border: #33363a;
+  --color-hw-zinc-dark: #2a2c2f;
+}
+
+@layer base {
+  body {
+    @apply bg-hw-bg text-zinc-300 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .lcd-glow {
+    text-shadow: 0 0 15px rgba(80, 250, 123, 0.4);
+  }
+  
+  .screw {
+    @apply w-3 h-3 bg-hw-zinc-dark rounded-full shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)] absolute;
+  }
+  
+  .status-led {
+    @apply w-2 h-2 rounded-full bg-zinc-800 transition-all duration-300;
+  }
+  
+  .status-led.active {
+    @apply bg-hw-lcd-text shadow-[0_0_8px_#50fa7b];
+  }
+}
